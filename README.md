@@ -1,32 +1,33 @@
-# Project Road Segmentation
+# CS-433 Machine Learning Project : Road Segmentation
 
-For this choice of project task, we provide a set of satellite images acquired 
-from GoogleMaps. We also provide ground-truth images where each pixel is labeled 
-as road or background. 
 
-Your task is to train a classifier to segment roads in these images, i.e. 
-assigns a label `road=1, background=0` to each pixel.
 
-Submission system environment setup:
+## Project Members:
 
-1. The dataset is available from the 
-[CrowdAI page](https://www.crowdai.org/challenges/epfl-ml-road-segmentation).
+- Ahmed Nour Achich
+- Mohamed Aziz Ben Chaabane
+- Ahmed Amine Ghariani
 
-2. Obtain the python notebook `segment_aerial_images.ipynb` from this github 
-folder, to see example code on how to extract the images as well as 
-corresponding labels of each pixel.
+## Description 
 
-The notebook shows how to use `scikit learn` to generate features from each 
-pixel, and finally train a linear classifier to predict whether each pixel is 
-road or background. Or you can use your own code as well. Our example code here 
-also provides helper functions to visualize the images, labels and predictions. 
-In particular, the two functions `mask_to_submission.py` and 
-`submission_to_mask.py` help you to convert from the submission format to a 
-visualization, and vice versa.
+This project proposes a method for segmenting satellite images by road detection.
+The classifier is consists of a form of Convolutional Neural Network called [UNet](https://en.wikipedia.org/wiki/U-Net), which outputs whether or not each pixel in an input image is considered to be part of a road.
+The training set includes 100 satellite images of size 400x400 and their corresponding ground truth.
+There are 50 satellite images in the testing set of size 608x608. 
 
-3. As a more advanced approach, try `tf_aerial_images.py`, which demonstrates 
-the use of a basic convolutional neural network in TensorFlow for the same 
-prediction task.
+## How to run
 
-Evaluation Metric:
- [F1 score](https://en.wikipedia.org/wiki/F1_score)
+Install required packages with either ```pip install -r requirements.txt``` or ```conda install requirements.txt```.
+
+Download the model from this [link](https://www.ab3athyawalid.com) , it needs to be in the root folder from where the python file is run.
+
+To run the program call ```python3 run.py ``` from root directory to create submission with best pre-trained model.  
+
+## File overview
+
+- run.py : contains the code for running the project and generating a csv file submission.
+- unet.ipynb : trained model
+- requirements.txt : required packages list
+
+
+ 
